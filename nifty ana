@@ -1,0 +1,19 @@
+from nsepy import get_history as gh
+
+from datetime import date
+
+data =gh(symbol = 'SBIN', start= date(2020,6,1), end =date(2020,6,18))
+
+print(data)
+
+data['Close'].plot()
+
+data['%Deliverble'].plot()
+
+from nsepy import get_index_pe_history
+nifty_pe = get_index_pe_history(symbol="NIFTY", start=date(2020,1,1),end=date(2020,6,18))
+
+print(nifty_pe.tail())
+
+nifty_pe['P/E'].plot()
+
